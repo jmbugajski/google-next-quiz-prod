@@ -1,4 +1,4 @@
-connection: "bigquery"
+connection: "mdp-next18-raw-events"
 include: "*.view"
 
 datagroup: google_next_quiz_app_default_datagroup {
