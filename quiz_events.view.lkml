@@ -48,6 +48,11 @@ view: quiz_events {
     value_format: "0"
   }
 
+  dimension: user_id_short {
+    type:  string
+    sql:  SUBSTR(${TABLE}.userId, -6) ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
