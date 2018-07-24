@@ -58,6 +58,11 @@ view: quiz_events {
     sql:  SUBSTR(${TABLE}.userId, -6) ;;
   }
 
+  dimension:  user_is_active {
+    type: yesno
+    sql: unix_seconds(current_timestamp()) - (answersubmitdate/1000) < 120 ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
@@ -76,6 +81,16 @@ view: quiz_events {
   measure: question_count {
     type: number
     sql:  COUNT(DISTINCT ${TABLE}.questionId) ;;
+  }
+
+  measure: active_user_count {
+    type: count_distinct
+    sql: ${user_id} ;;
+    filters: {
+      field: user_is_active
+      value: "yes"
+    }
+
   }
 }
 
