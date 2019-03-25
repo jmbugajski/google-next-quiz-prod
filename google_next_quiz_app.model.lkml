@@ -10,6 +10,7 @@ datagroup: google_next_quiz_app_default_datagroup {
 persist_with: google_next_quiz_app_default_datagroup
 
 explore: quiz_events {
+  hidden: yes
   sql_table_name: `mdp-next18.raw.events` ;;
   # Repeated nested Object
   join: question {
