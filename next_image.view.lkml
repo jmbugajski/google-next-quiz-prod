@@ -1,4 +1,6 @@
-explore: next_image {}
+explore: next_image {
+  hidden: yes
+}
 
 view: next_image {
   derived_table: {
